@@ -1,13 +1,19 @@
 'use client'
-import { StyledHero } from "./style";
+import "../styles/hero.scss";
+import axios from "axios";
 import ProductCard from "./ProductCard";
+import { useProductData } from "../hooks/useProductsData";
 
 export default function Hero() {
+  const { data, isLoading } = useProductData();
+
+
   return (
-    <StyledHero>
-      <div className="grid-products">
-        <ProductCard/>
-      </div>
-    </StyledHero>
+    <div className="hero">
+     {!isLoading && data && (
+        <ProductCard products={data} />
+      )}
+      {isLoading && <p>Carregando...</p>}
+    </div>
   )
 };

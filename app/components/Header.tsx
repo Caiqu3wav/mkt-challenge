@@ -1,14 +1,13 @@
-'use client'
-import { StyledHeader } from './style';
+import "../styles/header.scss"
 
 
 export default function Header() {
   return (
-    <StyledHeader>
-        <h1>MKS <span>Sistemas</span></h1>
+    <header>
+        <h1 className='flex items-center gap-2'>MKS <span className='font-light'>Sistemas</span></h1>
       <nav>
 
       </nav>
-    </StyledHeader>
+    </header>
   )
 }

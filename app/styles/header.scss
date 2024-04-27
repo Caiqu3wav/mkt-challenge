@@ -1,0 +1,21 @@
+$blue-mks: #2067f5;
+
+header{
+background-color: $blue-mks;
+    display: flex;
+    justify-content: space-between; 
+    padding-left: 50px;
+    padding-right: 50px;
+    height: 101px;
+    align-items: center;
+}
+
+     header h1{
+        font-size: 40px;
+        color: white;
+    }
+
+    header h1 span{
+        font-size: 20px;
+        color: white;
+    }
