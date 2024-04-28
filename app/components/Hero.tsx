@@ -11,7 +11,7 @@ export default function Hero() {
   return (
     <div className="hero">
      {!isLoading && data && (
-        <ProductCard products={data} />
+        <ProductCard cartProducts={data} />
       )}
       {isLoading && <p>Carregando...</p>}
     </div>

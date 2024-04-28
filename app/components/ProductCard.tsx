@@ -1,32 +1,26 @@
 import "../styles/products.scss";
+import { UseDispatch, useDispatch } from "react-redux";
+import { addToCart } from "../redux/cart.slice";
+import { CartProduct } from "../interface/Product";
+import { CartProductProps } from "../interface/Product";
 
-export interface Product {
-  id: number;
-  name: string;
-  brand: string;
-  description: string;
-  photo: string;
-  price: string;
-}
 
-export interface ProductsCardProps {
-  products: Product[];
-}
+export default function ProductCard({ cartProducts }: CartProductProps) {
 
-export default function ProductCard({ products }: ProductsCardProps) {
-
+  const dispatch = useDispatch();
 
   return (
     <div className="grid-products">
-      {products.map((product) => (
+      {cartProducts.map((product) => (
         <div key={product.id} className="product-card rounded-t-lg flex flex-col w-[218px] h-fit items-center justify-between text-black">
           <img src={product.photo}  alt={product.name} />
           <div className="flex w-full justify-between px-[10px]">
             <h1 className="text-black">{product.name}</h1>
-            <p className="px-3 flex items-center h-[32px] bg-[#373737] text-white rounded-md">{product.price}</p>
+            <p className="px-3 flex items-center h-[32px] bg-[#373737] text-white rounded-md">R${product.price}</p>
           </div>
           <p className="text-black text-sm">{product.description}</p>
-          <button className="rounded-b-lg">Comprar</button>
+          <button onClick={() => dispatch(addToCart(product))}
+           className="rounded-b-lg">Comprar</button>
         </div>
       ))}
     </div>
